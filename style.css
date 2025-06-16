@@ -1,0 +1,803 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light Gray Background */
+    color: #333; /* Dark Gray Text */
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffd166; /* Soft Creamy Yellow */
+    padding: 15px 30px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #222831;
+}
+
+/* Location Dropdown */
+.location {
+    display: flex;
+    align-items: center;
+    color: #222831;
+    margin-right: 15px;
+}
+
+.location select {
+    margin-left: 8px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.location select:hover {
+    border-color: #ff5733;
+}
+
+/* Search Box */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 30px;
+    padding: 5px 10px;
+    margin-right: 15px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-box input {
+    padding: 8px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    width: 160px;
+}
+
+.search-box button {
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: none;
+    background: #ff5733;
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: all 0.3s ease;
+}
+
+.search-box button:hover {
+    background: #e94e1b;
+    transform: scale(1.1);
+}
+
+/* Navigation Links */
+.topnav a {
+    color: #222831;
+    padding: 10px 18px;
+    text-decoration: none;
+    font-size: 17px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.topnav a:hover {
+    background: #ff5733;
+    color: #fff;
+    box-shadow: 0px 4px 10px rgba(255, 87, 51, 0.5);
+}
+
+
+/* Slideshow (Movie Poster Sliding) */
+.slideshow-container {
+    position: relative;
+    max-width: 800px;
+    margin: 30px auto;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Navigation Buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: white;
+    padding: 10px;
+    background: rgba(255, 87, 51, 0.7);
+    border-radius: 5px;
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(255, 87, 51, 1);
+}
+
+
+/* New Released Movies Section */
+.new-releases {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f8f8f8;
+}
+
+.new-releases h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.movie-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #ddd;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #222;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.card button {
+    background: #ff5722;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.card button:hover {
+    background: #e64a19;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .movie-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* Footer */
+footer {
+    background: #ffd166; /* Soft Yellow */
+    padding: 20px;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+    background: white;
+    width: 300px;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.close:hover {
+    color: red;
+}
+
+/* ============================= */
+/* Movie Card Styles for movies.html */
+/* ============================= */
+
+/* Center and Style Trending Movies Heading */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff5733; /* Vibrant Orange */
+    text-transform: uppercase;
+    margin-top: 20px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Animation Effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.movie-card {
+    background: #fdf0d5; /* Light Cream */
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.movie-card img {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.book-btn {
+    background: #ff6b6b; /* Soft Coral Red */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.book-btn:hover {
+    background: #ffcc70; /* Light Orange */
+    color: black;
+}
+/*  Booking page General Styles */
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+select, button {
+    font-size: 16px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: #ff5722;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #e64a19;
+}
+
+/* Seat Selection */
+.seats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 300px;
+    margin: auto;
+}
+
+.seat {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    background: #ddd;
+    border: 1px solid #999;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.seat.selected {
+    background: green;
+    color: white;
+}
+/* Login Page Styling */
+.login-container {
+    width: 320px;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #ff5733;
+}
+
+.login-container label {
+    display: block;
+    text-align: left;
+    margin: 8px 0 5px;
+    font-weight: bold;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.login-container input:focus {
+    border-color: #ff5733;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background: #ff5733;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-container button:hover {
+    background: #e14c2d;
+}
+
+.login-container p {
+    margin-top: 15px;
+}
+
+.login-container a {
+    color: #ff5733;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-container .back-home {
+    display: inline-block;
+    margin-top: 15px;
+    color: #333;
+}
+/* About Page Styling */
+.about {
+    text-align: center;
+    padding: 50px 20px;
+    background: #f4e3b2; /* Light Creamy Yellow */
+    color: #333;
+}
+
+.about h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #ff5733;
+}
+
+.about p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* About Content Boxes */
+.about-content {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.about-box {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.about-box h2 {
+    color: #ff5733;
+}
+
+.about-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+}
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+header {
+    background-color: #222;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.topnav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.topnav a:hover {
+    text-decoration: underline;
+}
+
+.about {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.about-content {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.about-box {
+    background-color: #f3f3f3;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.explore-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.explore-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Team Section Styles */
+.team-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.team-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 220px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.team-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.team-card h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+}
+
+.team-card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* Explore Movies Button */
+.explore-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #ff5733;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.explore-btn:hover {
+    background: #e94e1b;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fef9f4;
+    color: #333;
+  }
+  
+  header {
+    background-color: #ffcc70;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .topnav a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  
+  .topnav a:hover {
+    background: #ff5733;
+    color: white;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  select {
+    padding: 8px 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Centered Seat Grid */
+  .seats {
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+    width: fit-content;
+  }
+  
+  .seat {
+    padding: 10px;
+    background-color: #ffcc70;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .seat:hover {
+    background-color: #ff5733;
+    color: white;
+  }
+  
+  #confirm-booking {
+    background-color: #ff5733;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  #confirm-booking:hover {
+    background-color: #e14d2a;
+  }
+  
+  footer {
+    background-color: #393e46;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+  }
+  
+  /* Container styling */
+.container {
+    max-width: 100%;
+    padding: 20px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+/* Grid styling for movie cards */
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Individual movie card styling */
+.movie-card {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 180px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.book-btn {
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.book-btn:hover {
+    background-color: #e63939;
+}
+
+/* ============================= */
+/* Footer Styles */
+/* ============================= */
+
+footer {
+    background: #f7b267; /* Soft Peach */
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+.seats {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .seat {
+    padding: 10px;
+    background-color: #eee;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .seat.selected {
+    background-color: #6c5ce7;
+    color: white;
+  }
+  
+  .seat.booked {
+    background-color: #b2bec3;
+    cursor: not-allowed;
+  }
+  
+  .status {
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px solid #00b894;
+    background-color: #dfe6e9;
+    border-radius: 5px;
+  }
+  
+

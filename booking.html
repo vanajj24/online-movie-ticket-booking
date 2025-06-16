@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book Ticket</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">🎬 Movie Ticket Booking</div>
+    <nav class="topnav">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="about.html">About</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1 id="movie-title">Book Your Ticket</h1>
+
+    <h2>Select Cinema Hall</h2>
+    <select id="cinema-hall">
+      <option value="PVR Cinemas">PVR Cinemas</option>
+      <option value="INOX">INOX</option>
+      <option value="Cinepolis">Cinepolis</option>
+      <option value="Carnival Cinemas">Carnival Cinemas</option>
+    </select>
+
+    <h2>Select Time Slot</h2>
+    <select id="time-slot">
+      <option value="10:00 AM">10:00 AM</option>
+      <option value="1:00 PM">1:00 PM</option>
+      <option value="4:00 PM">4:00 PM</option>
+      <option value="7:00 PM">7:00 PM</option>
+      <option value="10:00 PM">10:00 PM</option>
+    </select>
+
+    <h2>Select Seat</h2>
+    <div class="seats" id="seats-container"></div>
+
+    <button id="confirm-booking">Confirm Booking</button>
+
+    <div id="status" class="status"></div>
+  </div>
+
+  <footer>
+    <p>Contact: abhishekvignan05@gmail.com | Address: Raja Bazar - Motihari, Bihar, India</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
